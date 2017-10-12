@@ -71,9 +71,12 @@ document.onkeyup = function(event) {
 			// Update Hangman black spaces
 			document.getElementById("MysteryWrestler").innerHTML = mysteryWord;
 			} else {
-				guessedLetters[j] = letter;
+				// push invalid letter to Guessed Letter array.
+				guessedLetters.push(letter);
 			}
+		}
 	}
+
 
 			// deduct a life
 			lives--;
@@ -89,6 +92,5 @@ document.onkeyup = function(event) {
 
 	
 
-} 
 
 setup();
