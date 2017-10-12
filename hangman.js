@@ -31,17 +31,18 @@ function setup() {
 	randomWord = superstar[Math.floor(Math.random()*superstar.length)];
 	
 	for (i = 0; i < randomWord.length; i++) {
-		if (randomWord.charAt(i) === " ")
-			mysteryWord[i] = "!"
-		else
+		if (randomWord.charAt(i) === " ") {
+			mysteryWord[i] = "!";
+		}
+		else{
 			mysteryWord[i] = "_";
+		}
 
 	}
 
 	for (i = 0; i < mysteryWord.length; i++) {
 		document.getElementById("MysteryWrestler").innerHTML = document.getElementById("MysteryWrestler").innerHTML + "  " + mysteryWord[i];
 	}
-
 }
 
 // Accept Key Press then assuming it's a letter then compare that letter to the letters already that have been entered, 
@@ -62,8 +63,24 @@ document.onkeyup = function(event) {
 
 // 		}
 // 	}
+// Check the array and fill blanks with chosen letters
+	for (j = 0; j < randomWord.length; j++) {
+		if (randomWord[j].charAt(0) === letter) {
+			// update array with letter
+			mysteryWord[j] = letter;
+			console.log(mysteryWord);
+		}
+		// else{
+		// 	// deduct a life
+		// 	lives--;
+		// 	// rewrite lives div
+		// 	document.getElementById("lives").innerHTML = lives;
+		// 	// update wrong letter variable
+		// 	letter.append(wrongLetters);
+		// }
 
-// } 
+	}
+
+} 
 
 setup();
-console.log(randomWord);
