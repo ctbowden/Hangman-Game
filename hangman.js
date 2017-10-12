@@ -9,89 +9,61 @@
 // Possible Variables
 
 // Word Bank Array
-var superstar = ["Hulk Hogan", "Jim Cornette", "Rowdy Roddy Piper", "Jake The Snake Roberts"];
+var superstar = ["Hulk Hogan", "Jim Cornette", "Rowdy Roddy Piper", "Jake The Snake Roberts", "Bret Hitman Hart", "Big Boss Man", "John Cena", "Ric Flair"];
 
-// Way to Generate Random Word choice by computer
-var randomWord = superstar[Math.floor(Math.random()*superstar.length)];
+var randomWord; // stores randomly selected word for hangman game
 
-// creating the answer blanks using an array
-var mysteryWord = [];
+// Number of Lives aka misses
+var lives = 6;
 
-for (var i = 0; i < randomWord.length; i++) {
-	mysteryWord[i] = "_";
-}
-
-//Display Blanks for MysteryWord
-
-
-
-var remainingLetters = randomWord.length;
-
-// Game Loop
-while (remainingLetters > 0) {
-	// Game Code
-	// Update Progress
-	document.querySelector("#randomWord").innerHTML = mysteryWord.join(" ");
-
-	// Take input from player
-	document.onkeypress = function(event){
-		var guess = String.fromCharCode(event.keyCode).toLowerCase();
-	}
-	
-		if (lives > 0) {
-			//update the game state
-			for (var j = 0; j < randomWord.length; j++) {
-			if (randomWord[j] === guess) {
-				mysteryWord[j] = guess;
-				remainingLetters--;
-				}
-			}
-		}
-
-	// Update mysteryWord and remainingLetters for every guess
-
-
-};
-
-// Number of Chances Variable
-var lives = 10;
-
-// Variables for scores
-var wins = 0;
-var losses = 0;
-
-
+// empty array of guessed letters
 var guessedLetters = [];
 
+// incorrect guesses array to store wrong guesses
+var wrongLetters = [];
+
+// creating the answer blanks using an array with for loop
+var mysteryWord = [];
 
 
+// Setup Function
+function setup() {
+	randomWord = superstar[Math.floor(Math.random()*superstar.length)];
+	
+	for (i = 0; i < randomWord.length; i++) {
+		if (randomWord.charAt(i) === " ")
+			mysteryWord[i] = "!"
+		else
+			mysteryWord[i] = "_";
 
-// Code to watch for keypress:  http://unixpapa.com/js/key.html
-// Code modified from Car Game
-document.onkeypress = function(event) {
-	event = event || window.event;
-	var charCode = event.keyCode || event.which;
-	var charStr = String.fromCharCode(charCode);
-	alert(charStr);
+	}
+
+	for (i = 0; i < mysteryWord.length; i++) {
+		document.getElementById("MysteryWrestler").innerHTML = document.getElementById("MysteryWrestler").innerHTML + "  " + mysteryWord[i];
+	}
+
 }
 
+// Accept Key Press then assuming it's a letter then compare that letter to the letters already that have been entered, 
+// then compare to the actual word probably a for loop and an if statement 
 
-// Function that updates the score...
-function updateScore() {
-	document.querySelector("#wins").innerHTML = "Wins: " + wins;
-}
+// Captures keyboard input
+document.onkeyup = function(event) {
+	//captures the key press, converts it to lowercase and saves it as variable named letter
+	var letter = String.fromCharCode(event.keyCode).toLowerCase();
+	console.log(letter);
+	// checks letter variable to ensure it's an acceptable character
+	
+// 	if (letter >= "a" && letter <= "z"){
+// 		for (q=0; q < mysteryWord.length; q++) {
+// 			if (mysteryWord.charAt(q) = letter) {
+// 				mysteryWord.indexOf(q) = letter;
+// 			}
 
-// Way to Limit Choices to letters
+// 		}
+// 	}
 
-// Function to Process a keystroke? This would update usedbank, apply letter to current word..
+// } 
 
-
-// Code to Initialize the Game
-
-
-// Game Win condition
-
-
-
-
-
+setup();
+console.log(randomWord);
