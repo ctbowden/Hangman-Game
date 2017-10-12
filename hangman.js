@@ -28,7 +28,7 @@ var mysteryWord = [];
 
 // Setup Function
 function setup() {
-	randomWord = superstar[Math.floor(Math.random()*superstar.length)];
+	randomWord = superstar[Math.floor(Math.random()*superstar.length)].toUpperCase();
 	
 	for (i = 0; i < randomWord.length; i++) {
 		if (randomWord.charAt(i) === " ") {
@@ -51,7 +51,7 @@ function setup() {
 // Captures keyboard input
 document.onkeyup = function(event) {
 	//captures the key press, converts it to lowercase and saves it as variable named letter
-	var letter = String.fromCharCode(event.keyCode).toLowerCase();
+	var letter = String.fromCharCode(event.keyCode).toUpperCase();
 	console.log(letter);
 	// checks letter variable to ensure it's an acceptable character
 	
@@ -68,18 +68,26 @@ document.onkeyup = function(event) {
 		if (randomWord[j].charAt(0) === letter) {
 			// update array with letter
 			mysteryWord[j] = letter;
-			console.log(mysteryWord);
-		}
-		// else{
-		// 	// deduct a life
-		// 	lives--;
-		// 	// rewrite lives div
-		// 	document.getElementById("lives").innerHTML = lives;
-		// 	// update wrong letter variable
-		// 	letter.append(wrongLetters);
-		// }
-
+			// Update Hangman black spaces
+			document.getElementById("MysteryWrestler").innerHTML = mysteryWord;
+			} else {
+				guessedLetters[j] = letter;
+			}
 	}
+
+			// deduct a life
+			lives--;
+			
+			// rewrite lives div
+			document.getElementById("lives").innerHTML = lives;
+			// update wrong letter variable
+			
+
+			// write to HTML the missed guesses
+			document.getElementById("guessed").innerHTML = guessedLetters[j];
+			
+
+	
 
 } 
 
