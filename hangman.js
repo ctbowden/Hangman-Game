@@ -59,7 +59,7 @@ document.onkeyup = function(event)
 	//captures the key press, converts it to lowercase and saves it as variable named letter
 	var letter = String.fromCharCode(event.keyCode).toUpperCase();
 	// Check to see if keystroke is valid
-	if (randomWord.indexOf(letter) < 0){
+	if (randomWord.indexOf(letter) === -1 && wrongLetters.indexOf(letter) === -1){
 		// Add to guessedLetters
 		guessedLetters.push(letter);
 		// Add guess to wrong guesses
@@ -90,18 +90,13 @@ document.onkeyup = function(event)
 				document.getElementById("MysteryWrestler").innerHTML = mysteryWord;
 				} 
 			}
+		// Check for Win here?
+		if (mysteryWord.indexOf("_") === -1){
+			alert("You're a Winner");
 		}
+		}
+		console.log(lives);
 }
-
-	console.log(guessedLetters);
-			// deduct a life
-			//lives--;
-			
-			// rewrite lives div
-			//document.getElementById("lives").innerHTML = lives;
-			// update wrong letter variable
-			
-
 	
 
 
