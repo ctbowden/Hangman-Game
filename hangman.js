@@ -13,8 +13,8 @@ var superstar = ["Hulk Hogan", "Jim Cornette", "Rowdy Roddy Piper", "Jake The Sn
 
 var randomWord; // stores randomly selected word for hangman game
 
-// Number of Lives aka misses
-var lives = 6;
+// variable to hold Number of Lives aka invalid guesses
+var lives;
 
 // empty array of guessed letters
 var guessedLetters = [];
@@ -28,8 +28,12 @@ var mysteryWord = [];
 
 // Setup Function
 function setup() {
+	// generates random word for the hangman game to use taken from superstar array of possible choices
 	randomWord = superstar[Math.floor(Math.random()*superstar.length)].toUpperCase();
-	
+	// set starting lives
+	lives = 9;
+	document.getElementById("lives").innerHTML = lives;
+	// Span the randomWord array, then write "!" where that string has empty spaces and fill characters with "_" to create mysteryWord variable
 	for (i = 0; i < randomWord.length; i++) {
 		if (randomWord.charAt(i) === " ") {
 			mysteryWord[i] = "!";
@@ -39,55 +43,63 @@ function setup() {
 		}
 
 	}
-
+	// Display the mysteryWord array on the HTML page with spaces separating the characters
 	for (i = 0; i < mysteryWord.length; i++) {
 		document.getElementById("MysteryWrestler").innerHTML = document.getElementById("MysteryWrestler").innerHTML + "  " + mysteryWord[i];
 	}
 }
 
+
 // Accept Key Press then assuming it's a letter then compare that letter to the letters already that have been entered, 
 // then compare to the actual word probably a for loop and an if statement 
 
 // Captures keyboard input
-document.onkeyup = function(event) {
+document.onkeyup = function(event) 
+{
 	//captures the key press, converts it to lowercase and saves it as variable named letter
 	var letter = String.fromCharCode(event.keyCode).toUpperCase();
-	console.log(letter);
-	// checks letter variable to ensure it's an acceptable character
-	
-// 	if (letter >= "a" && letter <= "z"){
-// 		for (q=0; q < mysteryWord.length; q++) {
-// 			if (mysteryWord.charAt(q) = letter) {
-// 				mysteryWord.indexOf(q) = letter;
-// 			}
-
-// 		}
-// 	}
-// Check the array and fill blanks with chosen letters
-	for (j = 0; j < randomWord.length; j++) {
-		if (randomWord[j].charAt(0) === letter) {
-			// update array with letter
-			mysteryWord[j] = letter;
-			// Update Hangman black spaces
-			document.getElementById("MysteryWrestler").innerHTML = mysteryWord;
-			} else {
-				// push invalid letter to Guessed Letter array.
-				guessedLetters.push(letter);
+	// Check to see if keystroke is valid
+	if (randomWord.indexOf(letter) < 0){
+		// Add to guessedLetters
+		guessedLetters.push(letter);
+		// Add guess to wrong guesses
+		wrongLetters.push(letter);
+		// Write to Missed Letters Bank on HTML
+		document.getElementById("guessed").innerHTML = wrongLetters;
+		// deduct life
+		lives--;
+		// check win condition
+		if (lives = 0){
+			// Alert to Game Loss
+			alert("you lose");
+			//
+			document.getElementById("lives").innerHTML = "You are out of lives";
+		}
+			//update lives to reflect lost life
+		document.getElementById("lives").innerHTML = lives;
+	} else {
+		// update guesses
+		guessedLetters.push(letter);
+		// Check the array and fill blanks with chosen letters
+		for (j = 0; j < randomWord.length; j++) {
+			if (randomWord[j].charAt(0) === letter) 
+				{
+				// update array with letter
+				mysteryWord[j] = letter;
+				// Update Hangman black spaces
+				document.getElementById("MysteryWrestler").innerHTML = mysteryWord;
+				} 
 			}
 		}
-	}
+}
 
-
+	console.log(guessedLetters);
 			// deduct a life
-			lives--;
+			//lives--;
 			
 			// rewrite lives div
-			document.getElementById("lives").innerHTML = lives;
+			//document.getElementById("lives").innerHTML = lives;
 			// update wrong letter variable
-			
-
-			// write to HTML the missed guesses
-			document.getElementById("guessed").innerHTML = guessedLetters[j];
 			
 
 	

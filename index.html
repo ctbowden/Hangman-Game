@@ -4,9 +4,8 @@
 	<title>TWA: Trivia Wrestling Alliance Hangman</title>
 	<!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<script src ="hangman.js" type="text/javascript"></script>
 </head>
-<body onload="setup();">
+<body>
 	
 	<header>
 		<h1>TWA: Trivia Wrestling Alliance</h1>
@@ -19,7 +18,7 @@
 			<h2 id="wins">Wins!</h2>
 		</div>
 		<div><p id="MysteryWrestler"></p></div>
-		<div id="lives">Remaining Guesses:</div>
+		<div><p>Remaining Guesses:<span id="lives"></span></p></div>
 		<div id="guessed"><p>Word Bank</p></div>
 	</div>
 
@@ -27,4 +26,5 @@
 
 
 </body>
+<script src ="hangman.js" type="text/javascript"></script>
 </html>
