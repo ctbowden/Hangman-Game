@@ -28,7 +28,7 @@ function setup() {
 	// Span the randomWord array, then write "!" where that string has empty spaces and fill characters with "_" to create mysteryWord variable
 	for (i = 0; i < randomWord.length; i++) {
 		if (randomWord.charAt(i) === " ") {
-			mysteryWord[i] = "!";
+			mysteryWord[i] = "&nbsp; &nbsp; &nbsp;";
 		}
 		else{
 			mysteryWord[i] = "_";
@@ -69,21 +69,30 @@ document.onkeyup = function(event)
 		}
 			//update lives to reflect lost life
 		document.getElementById("lives").innerHTML = lives;
-	} else {
-		// update guesses
-		guessedLetters.push(letter);
-		// Check the array and fill blanks with chosen letters
-		for (j = 0; j < randomWord.length; j++) {
-			if (randomWord[j].charAt(0) === letter) 
-				{
-				// update array with letter
-				mysteryWord[j] = letter;
-				// Update Hangman black spaces
-				document.getElementById("MysteryWrestler").innerHTML = mysteryWord;
-				} 
+	} 
+	else 
+	{
+	// update guesses
+	guessedLetters.push(letter);
+	// Check the array and fill blanks with chosen letters
+	for (j = 0; j < randomWord.length; j++) 
+	{
+		if (randomWord[j].charAt(0) === letter) 
+		{
+		// update array with letter
+		mysteryWord[j] = letter;
+		// Update Hangman black spaces
+		document.getElementById("MysteryWrestler").innerHTML = "";
+		// Display the mysteryWord array on the HTML page with spaces separating the characters
+			for (i = 0; i < mysteryWord.length; i++) 
+			{
+			document.getElementById("MysteryWrestler").innerHTML = document.getElementById("MysteryWrestler").innerHTML + "  " + mysteryWord[i];
 			}
-		// Check for Win here?
-		if (mysteryWord.indexOf("_") === -1){
+		} 
+		}
+			// Check for Win here?
+			if (mysteryWord.indexOf("_") === -1)
+			{
 			alert("You're a Winner");
 			//increase wins
 			wins = wins + 1;
@@ -91,7 +100,7 @@ document.onkeyup = function(event)
 			document.getElementById("wins").innerHTML = wins;
 			// setup new game
 			newGame();
-		}
+			}
 	}
 }
 	
