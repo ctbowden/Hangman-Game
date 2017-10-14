@@ -9,13 +9,7 @@
 // Possible Variables
 
 // Word Bank Array
-var superstar = ["Hulk Hogan", "Jim Cornette", "Rowdy Roddy Piper", "Jake The Snake Roberts", "Bret Hitman Hart", "Big Boss Man",
-				 "John Cena", "Ric Flair", "The Miz", "Seth Rollins", "Dean Ambrose", "Dusty Rhodes", "Arn Anderson", "Charlotte", "Sasha Banks"
-				 "Vince McMahon", "Magnum TA", "Degeneration X", "Hardy Boyz", "Jeff Hardy", "Matt Hardy", "Rock N Roll Express", "Road Warriors", 
-				 "Stone Cold Steve Austin", "The Rock", "Mick Foley", "Triple H", "Chris Jericho", "Jimmy Valiant", "Gordon Sole", "Jerry The King Lawler",
-				 "Lita", "Junkyard Dog", "Macho Man Randy Savage", "Miss Elizabeth", "Dudley Boyz", "Edge and Christian", "Roman Reigns", "Braun Strowman", 
-				 "Brock Lesnar", "Paul Heyman", "The Undertaker", "Booker T", "Ricky The Dragon Steamboat", "Tully Blanchard", "Ole Anderson", "Bobby Eaton", 
-				 "Mr Fuji", "Terry Funk"];
+var superstar = ["Hulk Hogan", "Jim Cornette", "Rowdy Roddy Piper", "Jake The Snake Roberts", "Bret Hitman Hart", "Big Boss Man", "John Cena", "Ric Flair", "The Miz", "Seth Rollins", "Dean Ambrose", "Dusty Rhodes", "Arn Anderson", "Charlotte", "Sasha Banks", "Vince McMahon", "Magnum TA", "Degeneration X", "Hardy Boyz", "Jeff Hardy", "Matt Hardy", "Rock N Roll Express", "Road Warriors","Stone Cold Steve Austin", "The Rock", "Mick Foley", "Triple H", "Chris Jericho", "Jimmy Valiant", "Gordon Sole", "Jerry The King Lawler","Lita", "Junkyard Dog", "Macho Man Randy Savage", "Miss Elizabeth", "Dudley Boyz", "Edge and Christian", "Roman Reigns", "Braun Strowman", "Brock Lesnar", "Paul Heyman", "The Undertaker", "Booker T", "Ricky The Dragon Steamboat", "Tully Blanchard", "Ole Anderson", "Bobby Eaton", "Mr Fuji", "Terry Funk"];
 
 var randomWord; // stores randomly selected word for hangman game
 var lives = 9; // variable to hold Number of Lives aka invalid guesses
