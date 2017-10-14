@@ -12,19 +12,12 @@
 var superstar = ["Hulk Hogan", "Jim Cornette", "Rowdy Roddy Piper", "Jake The Snake Roberts", "Bret Hitman Hart", "Big Boss Man", "John Cena", "Ric Flair"];
 
 var randomWord; // stores randomly selected word for hangman game
-
-// variable to hold Number of Lives aka invalid guesses
-var lives = 9;
-
-// empty array of guessed letters
-var guessedLetters = [];
-
-// incorrect guesses array to store wrong guesses
-var wrongLetters = [];
-
-// creating the answer blanks using an array with for loop
-var mysteryWord = [];
-
+var lives = 9; // variable to hold Number of Lives aka invalid guesses
+var guessedLetters = []; // empty array of guessed letters
+var wrongLetters = []; // incorrect guesses array to store wrong guesses
+var mysteryWord = [];// creating the answer blanks using an array with for loop
+var wins = 0; // tracking wins
+var losses = 0; // tracking losses
 
 // Setup Function
 function setup() {
@@ -35,7 +28,7 @@ function setup() {
 	// Span the randomWord array, then write "!" where that string has empty spaces and fill characters with "_" to create mysteryWord variable
 	for (i = 0; i < randomWord.length; i++) {
 		if (randomWord.charAt(i) === " ") {
-			mysteryWord[i] = "!";
+			mysteryWord[i] = "/";
 		}
 		else{
 			mysteryWord[i] = "_";
@@ -67,8 +60,12 @@ document.onkeyup = function(event)
 		if (lives === 0){
 			// Alert to Game Loss
 			alert("you lose");
-			//
-			document.getElementById("lives").innerHTML = "You are out of lives";
+			// Increase Losses
+			losses = losses + 1;
+			// update HTML with Losses
+			document.getElementById("losses").innerHTML = losses;
+			// Start New Game
+			newGame();
 		}
 			//update lives to reflect lost life
 		document.getElementById("lives").innerHTML = lives;
@@ -88,10 +85,25 @@ document.onkeyup = function(event)
 		// Check for Win here?
 		if (mysteryWord.indexOf("_") === -1){
 			alert("You're a Winner");
+			//increase wins
+			wins = wins + 1;
+			// Write Wins to HTML
+			document.getElementById("wins").innerHTML = wins;
+			// setup new game
+			newGame();
 		}
 	}
 }
 	
-
+function newGame() {
+	randomWord = []; // stores randomly selected word for hangman game
+	lives = 9; // variable to hold Number of Lives aka invalid guesses
+	guessedLetters = []; // empty array of guessed letters
+	wrongLetters = []; // incorrect guesses array to store wrong guesses
+	mysteryWord = [];// creating the answer blanks using an array with for loop
+	document.getElementById("MysteryWrestler").innerHTML = "";
+	document.getElementById("guessed").innerHTML = "";
+	setup();
+}
 
 setup();
