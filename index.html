@@ -1,38 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>TWA: Trivia Wrestling Alliance Hangman</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>TWA: Trivia Wrestling Alliance || Hangman Game</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<link rel="stylesheet" href="assets/css/style.css"> 
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<title></title>
 	<!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
 	
-	<header>
-		<h1>TWA: Trivia Wrestling Alliance</h1>
-		<h2>presents: Hangman!</h2>
-	</header>
+<div class="page-header text-center">
+  <h1><em>TWA: </em><small id="whitetext">Trivia Wrestling Alliance</small></h1>
+  <h4><small id="presents"><strong>presents:&nbsp;&nbsp;</strong></small><em>Wrestling Hangman</em></h4>
+</div>	
 
-	<div id="maincontent">
-		<div id="directions"><h1>Press Any Key to Get Started!</h1></div>
-		<div>
-			<p>Wins:<span id="wins"></span></p>
-		</div>
-		<div>
-			<p>Losses: <span id="losses"></span></p>
-		</div>
-		<div>
-			<p id="MysteryWrestler"></p>
-		</div>
-		<div>
-			<p>Remaining Guesses:<span id="lives"></span></p>
-		</div>
-		<div>
-			<p>Invalid Guesses so far:<span id="guessed"></span></p>
-		</div>
-	</div>
-
-
-
+<div class="container text-center">
+<div class="row">
+	<h2>Ladies and Gentlemen</h2>
+	<h3>Tonight's <em><strong>Main Event</strong></em>, coming to you live from... <span id="city"></span></h2>
+  	<p><em>Press Any Key to Get Started!</em></p>
+  	<p>Each word is the name of a wrestler from the past or present.  Attempt to guess the wrestler's name before you're down for the count!</p>
+  </div>
+  <div class="row text-center">
+  	<h3>Now Entering the Ring <em>from ... Parts Unknown!</em></h3>
+  	<div class="hangman"><span id="MysteryWrestler"></span></div>
+  	<br>
+  </div>
+  <div class="jumbotron row">
+ 	<img src="assets/images/ring.jpg" alt="wrestling ring">
+ 	<h2><strong><em>The Squared-Circle</em></strong></h2>	
+  </div>
+    <div class="row">
+    <div class="col-sm-4">
+      <p><strong>Wins</strong></p><br>
+      <p id="wins"></p>
+    </div>
+    <div class="col-sm-4">
+      <p><strong>Losses</strong></p><br>
+      <p id="losses"></p>
+    </div>
+    <div class="col-sm-4">
+      <p><strong>Near Falls</strong></p><br>
+      <p id="lives"></p>
+    </div>
+  </div>
+  <div class="row">
+  	<h3><em>Outside the Ring:</em><strong id="guessed"></strong></h3>
+  </div>
+  <br>
+</div>
+<footer class="text-center">
+ 	<br>
+  <p>Created by: Charles Bowden 2017</p> 
+</footer>
 
 </body>
 <script src ="hangman.js" type="text/javascript"></script>

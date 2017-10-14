@@ -17,6 +17,10 @@ var wrongLetters = []; // incorrect guesses array to store wrong guesses
 var mysteryWord = [];// creating the answer blanks using an array with for loop
 var wins = 0; // tracking wins
 var losses = 0; // tracking losses
+var homeTown = prompt("Enter your City, State");
+
+// Fill in Hometown
+document.getElementById("city").innerHTML = "<strong>" + homeTown + "</strong>";
 
 // Setup Function
 function setup() {
@@ -73,7 +77,7 @@ document.onkeyup = function(event)
 		// Add guess to wrong guesses
 		wrongLetters.push(letter);
 		// Write to Missed Letters Bank on HTML
-		document.getElementById("guessed").innerHTML = wrongLetters;
+		document.getElementById("guessed").innerHTML = "&nbsp;&nbsp;" + wrongLetters;
 		// deduct life
 		lives = lives - 1;
 		// check win condition
