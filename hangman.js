@@ -14,7 +14,7 @@ var superstar = ["Hulk Hogan", "Jim Cornette", "Rowdy Roddy Piper", "Jake The Sn
 var randomWord; // stores randomly selected word for hangman game
 
 // variable to hold Number of Lives aka invalid guesses
-var lives;
+var lives = 9;
 
 // empty array of guessed letters
 var guessedLetters = [];
@@ -31,7 +31,6 @@ function setup() {
 	// generates random word for the hangman game to use taken from superstar array of possible choices
 	randomWord = superstar[Math.floor(Math.random()*superstar.length)].toUpperCase();
 	// set starting lives
-	lives = 9;
 	document.getElementById("lives").innerHTML = lives;
 	// Span the randomWord array, then write "!" where that string has empty spaces and fill characters with "_" to create mysteryWord variable
 	for (i = 0; i < randomWord.length; i++) {
@@ -49,10 +48,6 @@ function setup() {
 	}
 }
 
-
-// Accept Key Press then assuming it's a letter then compare that letter to the letters already that have been entered, 
-// then compare to the actual word probably a for loop and an if statement 
-
 // Captures keyboard input
 document.onkeyup = function(event) 
 {
@@ -67,9 +62,9 @@ document.onkeyup = function(event)
 		// Write to Missed Letters Bank on HTML
 		document.getElementById("guessed").innerHTML = wrongLetters;
 		// deduct life
-		lives--;
+		lives = lives - 1;
 		// check win condition
-		if (lives = 0){
+		if (lives === 0){
 			// Alert to Game Loss
 			alert("you lose");
 			//
@@ -94,8 +89,7 @@ document.onkeyup = function(event)
 		if (mysteryWord.indexOf("_") === -1){
 			alert("You're a Winner");
 		}
-		}
-		console.log(lives);
+	}
 }
 	
 
