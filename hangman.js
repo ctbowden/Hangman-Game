@@ -2,10 +2,9 @@
 // 3rd Week UNC Coding Bootcamp
 // Oct. 7-14, 2017
 // By Charles Bowden
-
-// resources: http://apprize.info/javascript/kids/7.html
 //
-
+//
+//
 // Possible Variables
 
 // Word Bank Array
@@ -41,12 +40,33 @@ function setup() {
 	}
 }
 
+   // Test for letters (only good up to char 127)
+function isAlpha(aChar)
+{
+   myCharCode = aChar.charCodeAt(0);
+   
+      if(((myCharCode > 64) && (myCharCode <  91)) ||
+        ((myCharCode > 96) && (myCharCode < 123)))
+      {
+         return true;
+      }
+   
+      return false;
+}
+
 // Captures keyboard input
 document.onkeyup = function(event) 
 {
 	//captures the key press, converts it to lowercase and saves it as variable named letter
 	var letter = String.fromCharCode(event.keyCode).toUpperCase();
 	// Check to see if keystroke is valid
+	if(isAlpha(letter) === false)
+	{	
+		//not a character, do nothing
+	}
+	else
+	{
+
 	if (randomWord.indexOf(letter) === -1 && wrongLetters.indexOf(letter) === -1){
 		// Add to guessedLetters
 		guessedLetters.push(letter);
@@ -103,7 +123,7 @@ document.onkeyup = function(event)
 			}
 	}
 }
-	
+}	
 function newGame() {
 	randomWord = []; // stores randomly selected word for hangman game
 	lives = 9; // variable to hold Number of Lives aka invalid guesses
