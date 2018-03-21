@@ -1,7 +1,7 @@
 # TWA: Trivia Wrestling Alliance Hangman-Game
 ## By: Charles Bowden
 ## UNC Coding Bootcamp
-__Wrestling Themed Hangman Using names from across the decades of Professional Wrestling.__
+__Wrestling Themed Hangman featuring decades of Professional Wrestlers.__
 
 This is a simple HTML, CSS, Javascript web application that allows users to play Hangman with a word bank of professional wrestler names.
 
