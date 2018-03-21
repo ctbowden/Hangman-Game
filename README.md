@@ -1,8 +1,9 @@
-# Hangman-Game
-Javascript Hangman Game 
+# TWA: Trivia Wrestling Alliance Hangman-Game
+## By: Charles Bowden
+## UNC Coding Bootcamp
 
-#############################
-Steps to make a Hangman Game#
-#############################
+* Wrestling Themed Hangman Using names from across the decades of Professional Wrestling. *
 
-Wrestling Themed Hangman Using names from across the decades of Wrestling.
+This is a simple HTML, CSS, Javascript web application that allows users to play Hangman with a word bank of professional wrestler names.
+
+View the hosted page: https://ctbowden.github.io/Hangman-Game/
